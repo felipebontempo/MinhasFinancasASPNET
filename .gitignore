@@ -1,7 +1,6 @@
 # '.vs/' é uma pasta oculta
 .vs/
 .vscode/
-MinhasFinancas/*
 packages/
 
 #Ignora todas pastas com o nome Debug e Release... mesmo que as mesmas estejam dentro de outras pastas.
