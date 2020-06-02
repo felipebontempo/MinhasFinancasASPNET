@@ -9,7 +9,7 @@ namespace MinhasFinancas.DAO
 {
     public class FinancasContext : DbContext
     {
-        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         public DbSet<Movimentacao> Movimentacoes { get; set; }
 

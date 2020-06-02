@@ -6,23 +6,23 @@ using System.Web;
 
 namespace MinhasFinancas.DAO
 {
-    public class UsuarioDAO
+    public class MovimentacaoDAO
     {
         private FinancasContext context;
 
-        public UsuarioDAO(FinancasContext context)
+        public MovimentacaoDAO(FinancasContext context)
         {
             this.context = context;
         }
-        public void Adiciona(Usuario usuario)
+
+        public void Adiciona(Movimentacao movimentacao)
         {
-            context.Usuarios.Add(usuario);
+            context.Movimentacoes.Add(movimentacao);
             context.SaveChanges();
         }
-        public IList<Usuario> Lista()
+        public IList<Movimentacao> Lista()
         {
-            return context.Usuarios.ToList();
+            return context.Movimentacoes.ToList();
         }
-
     }
 }
