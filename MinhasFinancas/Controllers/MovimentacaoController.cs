@@ -1,4 +1,4 @@
-﻿using MinhasFinancas.DAO;
+using MinhasFinancas.DAO;
 using MinhasFinancas.Entidades;
 using System;
 using System.Collections.Generic;
@@ -43,6 +43,12 @@ namespace MinhasFinancas.Controllers
                 ViewBag.Usuarios = usuarioDAO.Lista();
                 return View("Form", movimentacao);
             }
+        }
+        public ActionResult MovimentacaoPorUsuario(MovimentacoesPorUsuarioModel model)
+        {
+            model.Usuarios = usuarioDAO.Lista();
+            model.Movimentacoes = movimentacaoDAO.BuscaPorUsuario(model.UsuarioId);
+            return View(model);
         }
     }
 }

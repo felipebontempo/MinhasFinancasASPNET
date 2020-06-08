@@ -1,0 +1,34 @@
+﻿@model MinhasFinancas.Models.MovimentacoesPorUsuarioModel
+@{
+    ViewBag.Title = "MovimentacaoPorUsuario";
+}
+
+<h2>MovimentacaoPorUsuario</h2>
+
+@using (Html.BeginForm("MovimentacaoPorUsuario", "Movimentacao", FormMethod.Get))
+{
+    @Html.LabelFor(m => m.UsuarioId, "Usuario")
+    @Html.DropDownListFor(m => m.UsuarioId, new SelectList(Model.Usuarios, "Id", "Nome"),"Escolha um usuário")
+
+    <input type="submit" value="Buscar" />
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>usuario</th>
+            <th>tipo</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model.Movimentacoes)
+        {
+            <tr>
+                <td>@m.Usuario.Nome</td>
+                <td>@m.Tipo</td>
+                <td>@m.Valor</td>
+            </tr>
+        }
+    </tbody>
+</table>

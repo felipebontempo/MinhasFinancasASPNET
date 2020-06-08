@@ -1,4 +1,4 @@
-﻿using MinhasFinancas.Entidades;
+using MinhasFinancas.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +23,10 @@ namespace MinhasFinancas.DAO
         public IList<Movimentacao> Lista()
         {
             return context.Movimentacoes.ToList();
+        }
+        public IList<Movimentacao> BuscaPorUsuario(int? usuarioId)
+        {
+            return context.Movimentacoes.Where(m => m.UsuarioId == usuarioId).ToList();
         }
     }
 }
