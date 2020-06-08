@@ -1,11 +1,11 @@
-using MinhasFinancas.DAO;
+﻿using MinhasFinancas.DAO;
 using MinhasFinancas.Entidades;
+using MinhasFinancas.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
 namespace MinhasFinancas.Controllers
 {
     [Authorize]
@@ -48,6 +48,13 @@ namespace MinhasFinancas.Controllers
         {
             model.Usuarios = usuarioDAO.Lista();
             model.Movimentacoes = movimentacaoDAO.BuscaPorUsuario(model.UsuarioId);
+            return View(model);
+        }
+        public ActionResult Busca(BuscaMovimentacoesModel model)
+        {
+            model.Usuarios = usuarioDAO.Lista();
+            model.Movimentacoes = movimentacaoDAO.Busca(model.ValorMinimo, model.ValorMaximo, model.DataMinima, model.DataMaxima, model.Tipo, model.UsuarioId);
+
             return View(model);
         }
     }
